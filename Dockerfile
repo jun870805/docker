@@ -45,7 +45,3 @@ COPY /webserver/wsgi.py /webserver
 WORKDIR /
 COPY /webserver/start.sh /
 RUN chmod +x start.sh
-
-# 啟動 gunicorn 及 Ngnix
-WORKDIR /
-CMD ["bash","start.sh"]
