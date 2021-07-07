@@ -235,6 +235,8 @@ Container 存檔成 Image
 
 <h2 id="Step4-1">案例架構</h2>
 
+<img src="https://github.com/jun870805/docker/blob/1.0.1/Image/Architecture.png" width="375">
+
 <h2 id="Step4-2">方法一、用base image一步步打包</h2>
 
 下載 CentOS:7
@@ -372,3 +374,7 @@ Container 存檔成 Image
 <h2 id="Step4-3">方法二、用Dockerfile直接build</h2>
 
 <h2 id="Step4-4">成果展示</h2>
+
+<img src="https://github.com/jun870805/docker/blob/1.0.1/Image/result_home.png" width="300">
+
+<img src="https://github.com/jun870805/docker/blob/1.0.1/Image/result_api.png" width="300">
