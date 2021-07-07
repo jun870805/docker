@@ -45,3 +45,7 @@ COPY /webserver/wsgi.py /webserver
 WORKDIR /
 COPY /webserver/start.sh /
 RUN chmod +x start.sh
+
+# 安裝 dos2unix (解決 sh 編碼問題)
+RUN yum install -y dos2unix
+RUN dos2unix start.sh

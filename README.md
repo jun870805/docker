@@ -386,7 +386,6 @@ Container 存檔成 Image
     #cd /
     #vi start.sh
 
-        #!/bin/bash
         cd /webserver
         /usr/local/nginx/sbin/nginx
         gunicorn -c config.py wsgi:app
@@ -398,7 +397,7 @@ Container 存檔成 Image
 **NOTE:** 使用壓縮檔執行Container
 
     #cat WebServer_v1.0.1.tar | sudo docker import - webserver:1.0.1
-    #docker run -itd --name WebServer4 -p 8000:8080 webserver:1.0.1 bash start.sh
+    #docker run -itd --name WebServer -p 8000:8080 webserver:1.0.1 bash start.sh
 
 <h2 id="Step4-3">方法二、用Dockerfile直接build</h2>
 
@@ -450,11 +449,11 @@ Dockerfile
     # 建立 run 要執行的文件
     WORKDIR /
     COPY /webserver/start.sh /
-
-    # 啟動 gunicorn 及 Ngnix
-    WORKDIR /
     RUN chmod +x start.sh
-    CMD ["bash","/start.sh"]
+
+    # 安裝 dos2unix (解決 sh 編碼問題)
+    RUN yum install -y dos2unix
+    RUN dos2unix start.sh
 
 Build Dockerfile
 
@@ -462,7 +461,7 @@ Build Dockerfile
 
 Build Container
 
-    #docker run  --name WebServer2  -p 8000:8080  myserver
+    #docker run -itd --name WebServer -p 800:8080 myserver  bash start.sh
 
 <h2 id="Step4-4">成果展示</h2>
 
