@@ -1,2 +1,4 @@
 # 忽略檔案
 WebServer_v1.0.1.tar
+weserver/nginx-1.18.0.tar.gz
+weserver/pcre-8.35.tar.gz
