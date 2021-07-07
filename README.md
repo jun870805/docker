@@ -448,15 +448,16 @@ Dockerfile
 
     # 啟動 gunicorn 及 Ngnix
     WORKDIR /
-    CMD ["/start.sh"]
+    RUN chmod +x start.sh
+    CMD ["bash","/start.sh"]
 
 Build Dockerfile
 
-    #docker build -t yourname . --no-cache
+    #docker build -t myserver . --no-cache
 
 Build Container
 
-    #docker run -itd --name WebServer --privileged=true -p 8000:8080  yourname /bin/bash
+    #docker run  --name WebServer2  -p 8000:8080  myserver
 
 <h2 id="Step4-4">成果展示</h2>
 

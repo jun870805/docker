@@ -47,4 +47,5 @@ COPY /webserver/start.sh /
 
 # 啟動 gunicorn 及 Ngnix
 WORKDIR /
-CMD ["/start.sh"]
+RUN chmod +x start.sh
+CMD ["bash","/start.sh"]
