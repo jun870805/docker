@@ -381,6 +381,16 @@ Container 存檔成 Image
 
     #curl -X GET "http://127.0.0.1:8080/api/home"
 
+增加 Ngnix 和 gunicorn 執行檔
+
+    #cd /
+    #vi start.sh
+
+        #!/bin/bash
+        cd /webserver
+        /usr/local/nginx/sbin/nginx
+        gunicorn -c config.py wsgi:app
+
 匯出壓縮檔
 
     #docker export WebServer > WebServer_v1.0.1.tar
@@ -388,12 +398,7 @@ Container 存檔成 Image
 **NOTE:** 使用壓縮檔執行Container
 
     #cat WebServer_v1.0.1.tar | sudo docker import - webserver:1.0.1
-    #docker run -itd --name WebServer -p 800:8080 webserver:1.0.1 /bin/bash
-    #docker exec -it WebServer /bin/bash
-    #/usr/local/nginx/sbin/nginx
-    #cd cd /webserver/
-    #gunicorn -c config.py wsgi:app --daemon
-    #exit
+    #docker run -itd --name WebServer4 -p 8000:8080 webserver:1.0.1 bash start.sh
 
 <h2 id="Step4-3">方法二、用Dockerfile直接build</h2>
 

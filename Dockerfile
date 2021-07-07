@@ -44,8 +44,8 @@ COPY /webserver/wsgi.py /webserver
 # 建立 run 要執行的文件
 WORKDIR /
 COPY /webserver/start.sh /
+RUN chmod +x start.sh
 
 # 啟動 gunicorn 及 Ngnix
 WORKDIR /
-RUN chmod +x start.sh
-CMD ["bash","/start.sh"]
+CMD ["bash","start.sh"]
